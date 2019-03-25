@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 1057622 */
+  src: url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.eot');
+  src: url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:1rem;
+  font-style:normal;
+}
+
+/*{name:'我的关注',path:'/focus'},*/
+/*{name:'我的创作',path:'/works'},*/
+/*{name:'我的收藏',path:'/collections'},*/
+/*{name:'我的统计',path:'/statistics'},*/
+/*{name:'资料与账号',path:'/setting'},*/
+
+.icon-focus:before{ content: "\e662" }
+.icon-works:before{ content: "\e620" }
+.icon-collections:before{ content: "\e688" }
+.icon-statistics:before{ content: "\e856" }
+.icon-setting:before{ content: "\e603" }

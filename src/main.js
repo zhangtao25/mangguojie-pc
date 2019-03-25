@@ -3,10 +3,17 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-Vue.config.productionTip = false
+// 装载element ui
+import ele from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ele);
 
-new Vue({
+Vue.config.productionTip = false;
+
+// 实例化Vue对象并挂载到window
+
+window.gApp = new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
