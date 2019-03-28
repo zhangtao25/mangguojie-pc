@@ -7,6 +7,28 @@ import store from './store'
 import ele from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ele);
+import AuthService from './service/auth'
+
+window.isLogin = false
+AuthService.autoLogin().then(res=>{
+  console.log(res)
+  window.isLogin = true
+})
+router.beforeEach((to, from, next) => {
+  console.log(to)
+  if (to.path=='/signup'){
+    console.log('登录')
+    next()
+  }else {
+    if (!window.isLogin){
+      next({path:'/signup'})
+    } else {
+      next()
+    }
+
+  }
+
+});
 
 Vue.config.productionTip = false;
 

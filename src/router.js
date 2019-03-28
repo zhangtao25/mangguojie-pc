@@ -8,6 +8,10 @@ export default new Router({
     {
       path: '/signup',
       component: ()=> import('./views/signup')
+    },
+    {
+      path: '/home',
+      component: ()=> import('./views/home')
     }
   ]
 })
