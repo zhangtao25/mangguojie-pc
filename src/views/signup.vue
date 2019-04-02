@@ -1,38 +1,42 @@
 <template>
   <div id="signup">
     <div class="wrap">
-      <div>芒果街</div>
-      <!--reg-->
-      <el-form :model="regForm" :rules="regRule" v-show="mode == 0" ref="regForm">
-        <el-form-item prop="user_email">
-          <el-input placeholder="请输入邮箱" v-model="regForm.user_email"></el-input>
-        </el-form-item>
-        <el-form-item prop="user_password">
-          <el-input placeholder="请输入密码" type="password" v-model="regForm.user_password"></el-input>
-        </el-form-item>
-        <el-form-item prop="user_password_v">
-          <el-input placeholder="再次输入密码" type="password" v-model="regForm.user_password_v"></el-input>
-        </el-form-item>
-        <el-form-item prop="user_vcode">
-          <el-input placeholder="请输入验证码" v-model="regForm.user_vcode"></el-input>
-        </el-form-item>
-        <p style="text-align: right" @click="getVcode"><span>{{countdown}}</span>获取验证码</p>
-        <el-button style="width: 100%" @click="onClickReg">注册</el-button>
-      </el-form>
+      <div class="form-wrap">
+        <div style="text-align: center;font-size: 60px;color: #0084ff;line-height: 100px">芒果街</div>
+        <p style="color: #0084ff;font-size: 22px;text-align: center;margin-bottom: 40px">{{mode==1?"注册":"登录"}}芒果街，发现更多可信赖的解答</p>
+        <!--reg-->
+        <el-form :model="regForm" :rules="regRule" v-show="mode == 0" ref="regForm">
+          <el-form-item prop="user_email">
+            <el-input placeholder="请输入邮箱" v-model="regForm.user_email"></el-input>
+          </el-form-item>
+          <el-form-item prop="user_password">
+            <el-input placeholder="请输入密码" type="password" v-model="regForm.user_password"></el-input>
+          </el-form-item>
+          <el-form-item prop="user_password_v">
+            <el-input placeholder="再次输入密码" type="password" v-model="regForm.user_password_v"></el-input>
+          </el-form-item>
+          <el-form-item prop="user_vcode">
+            <el-input placeholder="请输入验证码" v-model="regForm.user_vcode"></el-input>
+          </el-form-item>
+          <p style="text-align: right;color: #175199;margin-bottom: 10px;cursor: pointer" @click="getVcode"><span>{{countdown}}</span>获取验证码</p>
+          <el-button style="width: 100%" type="primary" @click="onClickReg">注册</el-button>
+        </el-form>
+        <!--login-->
+        <el-form :model="loginForm" :rules="loginRule" ref="loginForm" v-show="mode == 1">
+          <el-form-item prop="user_email">
+            <el-input placeholder="请输入邮箱" v-model="loginForm.user_email"></el-input>
+          </el-form-item>
 
-      <!--login-->
-      <el-form :model="loginForm" :rules="loginRule" ref="loginForm" v-show="mode == 1">
-        <el-form-item>
-          <el-input placeholder="请输入邮箱" v-model="loginForm.user_email"></el-input>
-        </el-form-item>
-
-        <el-form-item>
-          <el-input placeholder="请输入密码" v-model="loginForm.user_password"></el-input>
-        </el-form-item>
-        <el-button style="width: 100%" @click="onClickLogin">登录</el-button>
-      </el-form>
-      <el-button @click="tokenLogin">token校验</el-button>
-      <p>已有账号？<span @click="onChangeMode">{{mode==0?"注册":"登录"}}</span></p>
+          <el-form-item prop="user_password">
+            <el-input placeholder="请输入密码" type="password" v-model="loginForm.user_password"></el-input>
+          </el-form-item>
+          <el-button style="width: 100%" type="primary" @click="onClickLogin">登录</el-button>
+        </el-form>
+      </div>
+      <p class="SignContainer-switch">
+        已有账号？
+        <span style="color: #175199;cursor: pointer" @click="onChangeMode">{{mode==1?"注册":"登录"}}</span>
+      </p>
     </div>
   </div>
 </template>
@@ -100,13 +104,6 @@
       }
     },
     mounted(){
-      // console.log(localStorage.getItem('token'))
-      // let token = localStorage.getItem('token')
-      // if (token){
-      //   AuthService.autoLogin().then(res=>{
-      //     console.log(res)
-      //   })
-      // }
     },
     methods: {
       onChangeMode() {
@@ -123,6 +120,7 @@
                 this.regForm.user_email,
                 this.regForm.user_password,
                 this.regForm.user_vcode).then(res => {
+                  this.$message.success('注册成功！')
               console.log(res)
             })
           } else {
@@ -138,6 +136,8 @@
                 this.loginForm.user_password).then(res=>{
                   localStorage.setItem('user_email',this.loginForm.user_email)
                   localStorage.setItem('token',res)
+              this.$message.success('登陆成功！')
+              this.$router.push({path:'/home'})
             })
           } else {
             return false;
@@ -149,7 +149,7 @@
         if (this.countdown == 60) {
           if (email_reg.test(this.regForm.user_email)){
             AuthService.getVcode(this.regForm.user_email).then(res => {
-              console.log(res)
+              this.$message.success(res)
               this.startCountdown()
             })
           }else {
@@ -168,18 +168,39 @@
             this.countdown--
           }
         }, 1000)
-      },
-      tokenLogin(){
-        AuthService.autoLogin().then(res=>{
-          console.log(res)
-        })
       }
     }
   }
 </script>
 <style>
-  #signup > .wrap {
-    width: 432px;
+  #signup{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("./../assets/sign_bg.png");
+    background-color: #b8e5f8;
+    overflow: hidden;
+    position: relative;
+  }
+  #signup >.wrap{
+    border-radius: 2px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  #signup>.wrap> .form-wrap {
+    width: 352px;
+    padding: 0 40px 40px 40px;
+    background-color: white;
+  }
+  #signup >.wrap>.SignContainer-switch{
     margin: 0 auto;
+    width:432px;
+    line-height: 60px;
+    border-top: 1px solid #ebebeb;
+    background-color: #f6f6f6;
+    text-align: center;
+    font-size: 16px;
   }
 </style>

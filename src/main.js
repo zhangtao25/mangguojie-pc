@@ -9,13 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ele);
 import AuthService from './service/auth'
 
-window.isLogin = false
-AuthService.autoLogin().then(res=>{
-  console.log(res)
-  window.isLogin = true
-})
 router.beforeEach((to, from, next) => {
-  console.log(to)
   if (to.path=='/signup'){
     console.log('登录')
     next()
@@ -25,17 +19,18 @@ router.beforeEach((to, from, next) => {
     } else {
       next()
     }
-
   }
-
 });
-
 Vue.config.productionTip = false;
 
-// 实例化Vue对象并挂载到window
-
-window.gApp = new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app');
+window.isLogin = false
+AuthService.autoLogin().then(res=>{
+  window.isLogin = true
+  // 实例化Vue对象并挂载到window
+  window.gApp = new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app');
+  window.gApp.$router.push({path:'/home'})
+})
