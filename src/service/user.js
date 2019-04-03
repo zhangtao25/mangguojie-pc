@@ -31,7 +31,7 @@ function updateUser(req) {
     axios.post("/api/user/update",req).then((res) => {
       resolve(res.data)
     },res=>{
-      ErrorHandler.restApiErrorHandler(res,reject)
+      // ErrorHandler.restApiErrorHandler(res,reject)
     })
   })
 }

@@ -58,7 +58,7 @@ function getVcode(user_email) {
 
 function autoLogin() {
   return new Promise((resolve, reject) => {
-    if (localStorage.getItem('user_email')){
+    // if (localStorage.getItem('user_email')){
       let req = {
         user_email: localStorage.getItem('user_email'),
         token: localStorage.getItem('token')
@@ -66,9 +66,9 @@ function autoLogin() {
       axios.post("/api/auth/token", req).then((res) => {
         resolve(res.data)
       },res => {
-        window.gApp.$message.error(res.response.data.msg)
+        reject('ssss')
       })
-    }
+    // }
   })
 }
 

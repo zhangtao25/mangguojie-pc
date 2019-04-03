@@ -104,6 +104,9 @@
       }
     },
     mounted(){
+      if (window.isLogin){
+        this.$router.push({path:'/home'})
+      }
     },
     methods: {
       onChangeMode() {
@@ -153,10 +156,12 @@
               this.startCountdown()
             })
           }else {
-            console.log('请输入正确邮箱')
+            this.$message.error('请输入正确邮箱')
+            // console.log('请输入正确邮箱')
           }
         } else {
-          console.log('60秒内只能发送一次验证码')
+          this.$message.error('60秒内只能发送一次验证码')
+          // console.log('60秒内只能发送一次验证码')
         }
       },
       startCountdown() {
