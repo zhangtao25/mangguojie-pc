@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'iconfont';  /* project id 1057622 */
-  src: url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.eot');
-  src: url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1057622_d3xpdl3znnj.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 1126423 */
+  src: url('//at.alicdn.com/t/font_1126423_forxpg8hayc.eot');
+  src: url('//at.alicdn.com/t/font_1126423_forxpg8hayc.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1126423_forxpg8hayc.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1126423_forxpg8hayc.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1126423_forxpg8hayc.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1126423_forxpg8hayc.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -20,8 +20,9 @@
 /*{name:'我的统计',path:'/statistics'},*/
 /*{name:'资料与账号',path:'/setting'},*/
 
-.icon-focus:before{ content: "\e662" }
-.icon-works:before{ content: "\e620" }
-.icon-collections:before{ content: "\e688" }
-.icon-statistics:before{ content: "\e856" }
-.icon-setting:before{ content: "\e603" }
+/*.icon-focus:before{ content: "\e662" }*/
+/*.icon-works:before{ content: "\e620" }*/
+/*.icon-collections:before{ content: "\e688" }*/
+/*.icon-statistics:before{ content: "\e856" }*/
+/*.icon-setting:before{ content: "\e603" }*/
+.icon-zhaoxiangji:before{ content: "\e60b" }

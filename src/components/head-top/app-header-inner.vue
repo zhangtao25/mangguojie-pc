@@ -4,7 +4,7 @@
     <div class="right">
       <el-dropdown trigger="click" @command="handleCommand">
         <span class="el-dropdown-link">
-          <img style="width: 30px;height: 30px" src="./../../assets/touxiang.jpg" alt="">
+          <img style="width: 30px;height: 30px;cursor: pointer" src="./../../assets/touxiang.jpg" alt="">
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>我的主页</el-dropdown-item>
