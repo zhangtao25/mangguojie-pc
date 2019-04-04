@@ -23,7 +23,28 @@ function getUserinfo() {
     })
   })
 }
+function updateUserCover(req) {
+  return new Promise((resolve, reject)=>{
+    axios.post("/api/userinfo/usercover",{usercover:req}).then((res) => {
+      resolve(res.data)
+    },res=>{
+      // ErrorHandler.restApiErrorHandler(res,reject)
+    })
+  })
+}
+
+function updateUserAvatar(req) {
+  return new Promise((resolve, reject)=>{
+    axios.post("/api/userinfo/useravatar",{useravatar:req}).then((res) => {
+      resolve(res.data)
+    },res=>{
+      // ErrorHandler.restApiErrorHandler(res,reject)
+    })
+  })
+}
 
 export default {
-  getUserinfo
+  getUserinfo,
+  updateUserCover,
+  updateUserAvatar
 }
