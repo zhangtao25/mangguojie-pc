@@ -93,6 +93,10 @@
 <style>
   .user-avatar-editor{
     position: relative;
+    transform: translate(0,-18px);
+    margin-left: 18px;
+    /*left: 18px;*/
+    /*top: -18px;*/
   }
   .useravatar-wrap{
     width: 176px;
