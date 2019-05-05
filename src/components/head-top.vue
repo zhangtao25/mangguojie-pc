@@ -72,7 +72,7 @@
 <template>
   <div id="head-top">
     <div class="margin" style="position: relative">
-      <img src="./../assets/logo.png" alt="" class="logo">
+      <img src="../assets/img/logo.png" alt="" class="logo">
       <ul class="menu-nav">
         <li v-for="(item,index) of menuNavArr" :key="index">
           <a :class="{active:index == activeIndex}" @click="onSelectMenu(index)">

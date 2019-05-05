@@ -1,3 +1,6 @@
+import './assets/css/init.css'
+import './assets/css/iconfont.css'
+
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -11,6 +14,9 @@ Vue.use(ele);
 // 装载vue裁剪组件
 import VueCropper from 'vue-cropper';
 Vue.use(VueCropper);
+
+// import TestZttr from 'test-zttr'
+// Vue.use(TestZttr)
 
 // 全局登录校验路由守卫
 router.beforeEach((to, from, next) => {
