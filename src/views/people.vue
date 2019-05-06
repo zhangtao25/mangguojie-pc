@@ -12,12 +12,12 @@
 <script>
   import ProfileHeader from './people/profile-header'
   // import {TestZttr} from 'test-zttr'
-  import VueImageCropUpload from 'vue-image-crop-upload'
+  // import VueImageCropUpload from 'vue-image-crop-upload'
   export default {
     components:{
       'profile-header': ProfileHeader,
       // 'TestZttr': TestZttr,
-      'VueImageCropUpload':VueImageCropUpload
+      // 'VueImageCropUpload':VueImageCropUpload
     },
     mounted() {
       // console.log(TestZttr)

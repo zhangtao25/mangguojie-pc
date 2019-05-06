@@ -72,7 +72,7 @@
 <template>
   <div id="head-top">
     <div class="margin" style="position: relative">
-      <img src="../assets/img/logo.png" alt="" class="logo">
+      <img src="./../assets/logo.png" alt="" class="logo">
       <ul class="menu-nav">
         <li v-for="(item,index) of menuNavArr" :key="index">
           <a :class="{active:index == activeIndex}" @click="onSelectMenu(index)">
@@ -103,7 +103,7 @@
   import Login from './head-top/login'
   // 进行自动登录校验
   import AuthService from './../service/auth'
-  import UserService from './../service/user'
+  // import UserService from './../service/user'
   export default {
     components:{
       'login': Login

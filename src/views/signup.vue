@@ -181,7 +181,7 @@
   #signup{
     width: 100vw;
     height: 100vh;
-    background-image: url("../assets/img/sign_bg.png");
+    background-image: url("./../assets/sign_bg.png");
     background-color: #b8e5f8;
     overflow: hidden;
     position: relative;

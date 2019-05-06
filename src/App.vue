@@ -23,13 +23,13 @@
   </div>
 </template>
 <script>
-  import HeadTop from './components/head-top'
+  // import HeadTop from './components/head-top'
   import TopNavBar from './components/top-nav-bar'
-  import AuthService from './service/auth'
+  // import AuthService from './service/auth'
   import {mapActions} from 'vuex'
   export default {
     components:{
-      'head-top': HeadTop,
+      // 'head-top': HeadTop,
       'top-nav-bar': TopNavBar
     },
     mounted(){

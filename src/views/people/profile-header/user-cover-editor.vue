@@ -3,7 +3,7 @@
     <div class="under-wrap">
       <img style="width: 100%" :src="usercover" alt="">
       <el-button class="edit-btn" @click="onEditClick">编辑封面图片</el-button>
-      <input type="file" ref="userCoverFile" @change="onChange" v-show="false"></input>
+      <input type="file" ref="userCoverFile" @change="onChange" v-show="false"/>
     </div>
     <div class="cropper-wrap" v-show="isShow">
       <VueCropper
@@ -68,13 +68,13 @@
         let reads= new FileReader();
         let f=this.$refs.userCoverFile.files[0];
         reads.readAsDataURL(f);
-        reads.onload= function(e){
+        reads.onload= function(){
           self.option.img = this.result;
         };
       },
       onSaveClick() {
         this.$refs.cropper.getCropData(data => {
-          UserinfoService.updateUserCover(data).then(res=>{
+          UserinfoService.updateUserCover(data).then(()=>{
             this.isShow = false;
             this.usercover = '/api/usercover/'+localStorage.getItem('user_email')+'.png?t='+Math.random()
           })

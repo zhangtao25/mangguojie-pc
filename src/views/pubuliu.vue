@@ -8,7 +8,7 @@
 <template>
   <div>
     <ul style="column-count: 4; column-gap: 10px;">
-      <li class="t" :style="{height:item.h+'px',background:item.rgb}" v-for="(item,index) of testArr">1</li>
+      <li class="t" :style="{height:item.h+'px',background:item.rgb}" v-for="(item,index) of testArr" :key="index">1</li>
     </ul>
   </div>
 </template>

@@ -69,7 +69,7 @@
         let reads = new FileReader();
         let f = this.$refs.userAvatarFile.files[0];
         reads.readAsDataURL(f);
-        reads.onload = function (e) {
+        reads.onload = function () {
           self.option.img = this.result
         };
       },

@@ -1,6 +1,3 @@
-import './assets/css/init.css'
-import './assets/css/iconfont.css'
-
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -37,7 +34,7 @@ Vue.config.productionTip = false;
 import AuthService from './service/auth';
 window.isLogin = false;
 
-AuthService.autoLogin().then(res => {
+AuthService.autoLogin().then(() => {
   window.isLogin = true;
   // 实例化Vue对象并挂载到window
   window.gApp = new Vue({
@@ -46,7 +43,7 @@ AuthService.autoLogin().then(res => {
     render: h => h(App)
   }).$mount('#app');
 }).catch(
-    res => {
+    () => {
       window.isLogin = false
       // 实例化Vue对象并挂载到window
       window.gApp = new Vue({
