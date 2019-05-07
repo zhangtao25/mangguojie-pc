@@ -66,7 +66,7 @@ function autoLogin() {
       axios.post("/api/auth/token", req).then((res) => {
         resolve(res.data)
       },res => {
-        reject('ssss')
+        window.gApp.$message.error(res.response.data.msg)
       })
     // }
   })

@@ -9,6 +9,7 @@
     </div>
     <input type="file" ref="userAvatarFile" @change="onChange" v-show="false">
     <el-dialog
+            append-to-body
             title="提示"
             :visible.sync="dialogVisible"
             width="30%">

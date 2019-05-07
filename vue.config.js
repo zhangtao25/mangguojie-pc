@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'development'){
 module.exports = {
   publicPath: '/',
   devServer: {
-    port: 8085,
+    port: 8080,
     proxy: {
       '/api': {
         target: proxyTarget,

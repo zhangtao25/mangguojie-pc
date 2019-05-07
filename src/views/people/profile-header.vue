@@ -27,9 +27,6 @@
   }
 </script>
 <style>
-  /*.profile-header{*/
-    /*position: relative;*/
-  /*}*/
   .profile-header-main{
     display: flex;
     background-color: white;

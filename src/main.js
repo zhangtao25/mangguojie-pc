@@ -12,9 +12,6 @@ Vue.use(ele);
 import VueCropper from 'vue-cropper';
 Vue.use(VueCropper);
 
-// import TestZttr from 'test-zttr'
-// Vue.use(TestZttr)
-
 // 全局登录校验路由守卫
 router.beforeEach((to, from, next) => {
   if (to.path == '/signup') {
@@ -34,23 +31,27 @@ Vue.config.productionTip = false;
 import AuthService from './service/auth';
 window.isLogin = false;
 
-AuthService.autoLogin().then(() => {
-  window.isLogin = true;
-  // 实例化Vue对象并挂载到window
-  window.gApp = new Vue({
-    router,
-    store,
-    render: h => h(App)
-  }).$mount('#app');
-}).catch(
-    () => {
-      window.isLogin = false
-      // 实例化Vue对象并挂载到window
-      window.gApp = new Vue({
-        router,
-        store,
-        render: h => h(App)
-      }).$mount('#app');
-      window.gApp.$router.push({path: '/signup'})
-    }
-)
+// 校验登录状态
+function getLoginStatus(){
+  return new Promise((resolve, reject)=>{
+    AuthService.autoLogin().then(res => {
+      resolve(true)
+    }).catch(
+        res => {
+          resolve(false)
+        }
+    )
+  })
+}
+async function verifyLoginStatus (){
+  let loginStatus = await getLoginStatus();
+  window.isLogin = loginStatus
+}
+verifyLoginStatus();
+
+window.gApp = new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app');
+

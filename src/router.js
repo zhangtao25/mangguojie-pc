@@ -6,10 +6,6 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/pubuliu',
-      component: ()=> import('./views/pubuliu')
-    },
-    {
       path: '/',
       component: ()=> import('./views/home')
     },
@@ -20,6 +16,18 @@ export default new Router({
     {
       path: '/people',
       component: ()=> import('./views/people')
+    },
+    {
+      path: '/write',
+      component: ()=> import('./views/write')
+    },
+    {
+      path: '/discovery',
+      component: ()=> import('./views/discovery')
+    },
+    {
+      path: '/explorer',
+      component: ()=> import('./views/explorer')
     }
   ]
 })

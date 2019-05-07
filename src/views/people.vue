@@ -1,29 +1,27 @@
 <template>
   <div id="people">
-    <profile-header></profile-header>
-    <TestZttr></TestZttr>
-    <!--<VueImageCropUpload></VueImageCropUpload>-->
-    <!--<a class="btn" @click="toggleShow">set avatar</a>-->
-    <!--<VueImageCropUpload></VueImageCropUpload>-->
-    <!--<img :src="imgDataUrl">-->
-    <!--1038 1120 1805 0015 13-->
+    <!--<div class="margin">-->
+      <profile-header></profile-header>
+    <!--</div>-->
   </div>
 </template>
 <script>
   import ProfileHeader from './people/profile-header'
-  // import {TestZttr} from 'test-zttr'
-  // import VueImageCropUpload from 'vue-image-crop-upload'
   export default {
     components:{
       'profile-header': ProfileHeader,
-      // 'TestZttr': TestZttr,
-      // 'VueImageCropUpload':VueImageCropUpload
     },
     mounted() {
-      // console.log(TestZttr)
     }
   }
 </script>
 <style>
-
+  /*#people{*/
+    /*background-color: #f6f6f6;*/
+    /*overflow: hidden;*/
+  /*}*/
+  /*#people .margin{*/
+    /*width: 1000px;*/
+    /*margin: 60px auto 0;*/
+  /*}*/
 </style>
